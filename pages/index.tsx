@@ -4,55 +4,66 @@ import { Inter } from '@next/font/google';
 import styles from '@/styles/utils.module.css';
 import cls from '@/lib/utils/cls';
 import Link from 'next/link';
+import TypeMachine from '@/components/TypeMachine';
+import { PostData, getSortedPostsData } from '@/lib/posts';
+import { GetStaticProps } from 'next';
 
 
-export default function Home() {
+export const getStaticProps:GetStaticProps = async () => {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData
+    }
+  };
+};
+
+type HomeProps = {
+  allPostsData: PostData[]
+}
+
+export default function Home({ allPostsData }: HomeProps) {
+  console.log(allPostsData);
   return (
     <main className={styles.main}>
-      <div className={cls(styles.content_center)}>
-        <p >
-          <code>Welcome to my blog!</code>
-        </p>
+      <div>
+        <TypeMachine>
+          Hello, Welcome to my blog.
+        </TypeMachine>
       </div>
-      <section>
+      <section className={styles.section}>
         <h2>Latest Posts</h2>
         <ul>
-          <li>
-            <article className={styles.post_grid}>
-              <dl>
-                <dt>Published on</dt>
-                <dd>
-                  <time dateTime="2023-01-15">2023-01-15</time>
-                </dd>
-              </dl>
-              <div>
+          {allPostsData.map((post) => (
+            <li key={post.id}>
+              <article className={styles.article}>
+                <time dateTime={post.date}>{post.date}</time>
                 <div>
                   <h3>
-                    <Link href={`/blog/post1`}>
-                      post title
+                    <Link href={`/posts/${post.id}`}>
+                      {post.title}
                     </Link>
                   </h3>
                   <div>
-                    tag1 tag2
+                    {post.tags.join('')}
                   </div>
                 </div>
-              </div>
-            </article>
-          </li>
-        </ul>
-        <div>
-          <p>post title</p>
+              </article>
+            </li>
+          )
 
-        </div>
+          )}
+        </ul>
+
       </section>
 
       <div className={styles.grid}>
         <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <h2 >
             Posts <span>-&gt;</span>
           </h2>
@@ -62,11 +73,11 @@ export default function Home() {
         </a>
 
         <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <h2 >
             Tags <span>-&gt;</span>
           </h2>
@@ -76,11 +87,11 @@ export default function Home() {
         </a>
 
         <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <h2 >
             Collections <span>-&gt;</span>
           </h2>
@@ -90,11 +101,11 @@ export default function Home() {
         </a>
 
         <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <h2 >
             About <span>-&gt;</span>
           </h2>

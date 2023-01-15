@@ -51,7 +51,10 @@
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
+  transition:
+    background 200ms, border 200ms,
+    letter-spacing 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
 }
 
 .card span {
@@ -120,6 +123,10 @@
   .card:hover span {
     transform: translateX(4px);
   }
+
+  .card:hover h2 {
+    letter-spacing: .1rem;
+  }
 }
 
 @media (prefers-reduced-motion) {
@@ -185,11 +192,9 @@
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
+    background: linear-gradient(to bottom,
+        rgba(var(--background-start-rgb), 1),
+        rgba(var(--callout-rgb), 0.5));
     background-clip: padding-box;
     backdrop-filter: blur(24px);
   }
@@ -200,11 +205,9 @@
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgb(var(--background-end-rgb)) 40%);
     z-index: 1;
   }
 }
@@ -231,6 +234,7 @@
   from {
     transform: rotate(360deg);
   }
+
   to {
     transform: rotate(0deg);
   }
@@ -275,15 +279,25 @@
   inset: 0;
   padding: 2px;
   border-radius: var(--border-radius);
-  background: linear-gradient(
-    to bottom right,
-    rgba(var(--tile-start-rgb), 1),
-    rgba(var(--tile-end-rgb), 1)
-  );
+  background: linear-gradient(to bottom right,
+      rgba(var(--tile-start-rgb), 1),
+      rgba(var(--tile-end-rgb), 1));
   background-clip: content-box;
 }
 
-.post_grid {
+.article {
   display: grid;
-  grid-column: 2;
+  grid-template-columns: 1fr 3fr;
+}
+
+.article time {
+  line-height: 2rem;
+}
+
+.section {
+  width: var(--max-width);
+}
+
+.section h2 {
+  margin-bottom: 4rem;
 }
