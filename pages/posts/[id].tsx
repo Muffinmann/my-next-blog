@@ -1,5 +1,6 @@
 import { getAllPostIds, getPostData } from "@/lib/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
+import styles from './[id].module.css';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
@@ -19,10 +20,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 export default function Post({ postData }: any) {
   return (
-    <div>
-      {postData.title}
+    <div className={styles.post}>
+      <h1>
+        {postData.title}
+      </h1>
       {postData.date}
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} className={styles.post_body} />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import styles from './TypeMachine.module.css';
 
 
 const TypeMachine = ({ children }: {children: string}) => {
+  console.log(children);
   const [letters, setLetters] = useState('');
   // console.log(children);
   useEffect(() => {

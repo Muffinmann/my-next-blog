@@ -1,0 +1,28 @@
+.post {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post_body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post_body :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: .75rem;
+  margin-bottom: 1rem;
+}
+
+.post_body p {
+  line-height: 2rem;
+  font-size: large;
+}
+
+.post_body code {
+  background-color: burlywood;
+}

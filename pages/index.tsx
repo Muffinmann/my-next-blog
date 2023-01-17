@@ -28,6 +28,7 @@ export default function Home({ allPostsData }: HomeProps) {
     <main className={styles.main}>
       <div>
         <TypeMachine>
+          {/* TODO: support <a>: extract the string  */}
           Hello, Welcome to my blog.
         </TypeMachine>
       </div>
