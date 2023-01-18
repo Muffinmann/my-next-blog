@@ -30,11 +30,13 @@ export default function Home({ allPostsData }: HomeProps) {
 
         <Link href={'/'}>
           <TypeMachine>
-            {/* TODO: support <a>: extract the string  */}
-            Hello, Welcome to my blog. You can visit
-            <Link href={'/posts/test-post'}>First Post</Link>
-            or visit my
-            <Link href={'/projects'}>Projects</Link>
+            Hello, Yeonghyeon,
+            You are the first guest to this site, WELCOME!
+            How are you today?
+            I hope you are having a good time. This blog is still
+            under construction, so temporary you can only visit my
+            <Link href={'/posts/test-post'}>First Post</Link> &lt;- click
+            it. But more posts are coming soon :D
           </TypeMachine>
         </Link>
       </div>
