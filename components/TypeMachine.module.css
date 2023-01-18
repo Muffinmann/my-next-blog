@@ -8,6 +8,11 @@
     max-width: 300px;
 }
 
+.typewriter a {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
 /*
 */
 

@@ -27,10 +27,16 @@ export default function Home({ allPostsData }: HomeProps) {
   return (
     <main className={styles.main}>
       <div>
-        <TypeMachine>
-          {/* TODO: support <a>: extract the string  */}
-          Hello, Welcome to my blog.
-        </TypeMachine>
+
+        <Link href={'/'}>
+          <TypeMachine>
+            {/* TODO: support <a>: extract the string  */}
+            Hello, Welcome to my blog. You can visit
+            <Link href={'/posts/test-post'}>First Post</Link>
+            or visit my
+            <Link href={'/projects'}>Projects</Link>
+          </TypeMachine>
+        </Link>
       </div>
       <section className={styles.section}>
         <h2>Latest Posts</h2>
@@ -58,7 +64,7 @@ export default function Home({ allPostsData }: HomeProps) {
 
       </section>
 
-      <div className={styles.grid}>
+      {/* <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -114,7 +120,7 @@ export default function Home({ allPostsData }: HomeProps) {
             About me
           </p>
         </a>
-      </div>
+      </div> */}
     </main>
   );
 }
