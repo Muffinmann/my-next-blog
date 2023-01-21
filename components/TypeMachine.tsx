@@ -8,7 +8,7 @@ const applyTypeAnimation = (text: string, update: (s: string) => void) => {
     setTimeout(() => {
       currentString = currentString.concat(letter);
       update(currentString);
-    }, 0 * index);
+    }, 100 * index);
 
   });
 };
