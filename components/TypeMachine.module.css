@@ -5,7 +5,9 @@
 }
 
 .typewriter {
-    max-width: 300px;
+    max-width: 600px;
+    line-height: 1.5rem;
+    font-size: medium;
 }
 
 .typewriter a {

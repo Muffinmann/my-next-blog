@@ -1,4 +1,4 @@
-import { Children, cloneElement, createElement, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
+import { Children, cloneElement, ReactElement, useEffect, useState } from "react";
 import styles from './TypeMachine.module.css';
 
 
@@ -8,7 +8,8 @@ const applyTypeAnimation = (text: string, update: (s: string) => void) => {
     setTimeout(() => {
       currentString = currentString.concat(letter);
       update(currentString);
-    }, 150 * index);
+    }, 0 * index);
+
   });
 };
 
@@ -22,35 +23,46 @@ const useTypeAnimation = (text: string) => {
   return letters;
 };
 
-const Typewriter = ({ children }: {children: string}) => {
-  const letters = useTypeAnimation(children);
-  return (
-    <>
-      {letters}<span className={styles.caret} />
-    </>
-  );
+
+const injectDynamicString = (e:ReactElement, str: string): ReactElement | ReactElement[] => {
+  const childrenElement = e?.props?.children;
+  if (!childrenElement) return e;
+  if (typeof childrenElement === 'string') return cloneElement(e, e?.props, ` ${str}`);
+  if (Array.isArray(childrenElement)) {
+    return Children.map(childrenElement, (child: ReactElement) => injectDynamicString(child, str)) as ReactElement[];
+  }
+  return injectDynamicString(childrenElement.props.children, str);
+};
+
+const extractWrappedText = (e: ReactElement): string => {
+  const childrenElement = e?.props?.children;
+  if (!childrenElement) return '';
+  if (typeof childrenElement === 'string') return childrenElement;
+  if (Array.isArray(childrenElement)) {
+    return Children.map(childrenElement, (child: ReactElement) => extractWrappedText(child)).join(' ') as string;
+  }
+  return extractWrappedText(childrenElement.props.children);
 };
 
 const Scheduler = ({ children }:{children: ReactElement[]}) => {
-  const isFirstChildString = typeof children[0] === 'string';
-  const text = isFirstChildString ? children[0] : children[0]?.props.children || '';
+  const target = children[0];
+  const isFirstChildString = typeof target === 'string';
+  const text = isFirstChildString ? target : extractWrappedText(target);
   const letters = useTypeAnimation(text);
   return <>
-    {isFirstChildString ? letters : cloneElement(children[0], children[0]?.props, ` ${letters}`)}
+    {isFirstChildString ? letters : injectDynamicString(target, letters)}
     {letters.length === text.length && children.length > 1 && <Scheduler key={Date.now()}>{children.slice(1)}</Scheduler>}
-    {/* <span className={styles.caret} /> */}
   </>;
 };
 
-const TypeMachine = ({ children }: {children: (string | ReactElement)[]}) => {
+const TypeMachine = ({ children }: {children: string | (string | ReactElement)[]}) => {
   const arrayChildren = Children.toArray(children).map((child, index) => index > 0 && typeof child === 'string' ? ` ${child}` : child) as ReactElement[];
-  console.log('children = ', arrayChildren);
 
   return (
-    <div className={styles.typewriter}>
+    <p className={styles.typewriter}>
       <Scheduler>{arrayChildren}</Scheduler>
       <span className={styles.caret} />
-    </div>
+    </p>
   );
 };
 export default TypeMachine;

@@ -97,3 +97,7 @@ a {
     color-scheme: dark;
   }
 }
+
+time {
+  font-style: italic;
+}
