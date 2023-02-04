@@ -8,7 +8,11 @@ export default function Letter() {
     <main className={styles.main}>
       <div>
         <div>
-          <Image src={sunset} alt="sunset" width={400} height={200}  />
+          <Image src={sunset} alt="sunset" style={{
+            width: "90vw",
+            maxWidth: "600px",
+            maxHeight: "400px",
+          }} />
         </div>
         <TypeMachine>
           Dear Yeongheyon:<br/>
