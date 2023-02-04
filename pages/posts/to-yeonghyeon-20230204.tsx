@@ -10,6 +10,7 @@ export default function Letter() {
         <div>
           <Image src={sunset} alt="sunset" style={{
             width: "90vw",
+            height: "50vw",
             maxWidth: "600px",
             maxHeight: "400px",
           }} />
