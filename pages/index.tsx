@@ -46,7 +46,9 @@ export default function Home({ allPostsData }: HomeProps) {
                     </Link>
                   </h3>
                   <div>
-                    {post.tags.join('')}
+                    <i>
+                      {post.tags.join(', ')}
+                    </i>
                   </div>
                 </div>
               </article>
