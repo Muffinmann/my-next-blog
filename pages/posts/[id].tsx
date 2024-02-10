@@ -2,6 +2,7 @@ import { getAllPostIds, getPostData } from "@/lib/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
 import styles from './[id].module.css';
 import Head from "next/head";
+import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
@@ -26,6 +27,11 @@ export default function Post({ postData }: any) {
       <Head>
         <title>{postData.title}</title>
       </Head>
+      <nav>
+        <Link href="/">
+          Home
+        </Link>
+      </nav>
       <div className={styles.post}>
         <h1>
           {postData.title}
