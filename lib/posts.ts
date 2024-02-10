@@ -12,6 +12,7 @@ date: string,
 title: string,
 tags: any,
 draft: any,
+summary: string,
 }
 
 const postsDirectory = path.join(process.cwd(), 'data/posts');

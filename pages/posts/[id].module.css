@@ -9,10 +9,6 @@
   padding-right: .1rem;
 }
 
-.post :is(ol, ul) {
-  margin-left: 2rem;
-}
-
 .post_subtitle {
   display: flex;
   gap: 1rem;

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import TypeMachine from '@/components/TypeMachine';
 import { PostData, getSortedPostsData } from '@/lib/posts';
 import { GetStaticProps } from 'next';
+import { useState } from 'react';
 
 
 export const getStaticProps:GetStaticProps = async () => {
@@ -20,8 +21,12 @@ type HomeProps = {
 
 export default function Home({ allPostsData }: HomeProps) {
   return (
-    <main className={styles.main}>
-      {/* <div>
+    <div>
+      <div>
+
+      </div>
+      <main className={styles.main}>
+        {/* <div>
         Hi, My name is Lai, a software developer living in Germany.<br/>
         To me, writing is an important way to recapture those subtle sparks behind the busy life.
         It&apos;s a way for me to slow down and take a closer look at the world around me,
@@ -29,33 +34,37 @@ export default function Home({ allPostsData }: HomeProps) {
         I&apos;m starting this blog to share my musings on a variety of topics on the journey of my life.
         <TypeMachine> </TypeMachine>
       </div> */}
-      <section className={styles.section}>
-        <h2>Latest Posts</h2>
-        <ul>
-          {allPostsData.map((post) => (
-            <li key={post.id}>
-              <article className={styles.article}>
-                <time dateTime={post.date}>{post.date}</time>
-                <div>
-                  <span className={styles.post_title}>
-                    <Link href={`/posts/${post.id}`}>
-                      {post.title}
-                    </Link>
-                  </span>
+        <section className={styles.section}>
+          <h2>Latest Posts</h2>
+          <ul>
+            {allPostsData.map((post) => (
+              <li key={post.id}>
+                <article className={styles.article}>
+                  <time dateTime={post.date}>{post.date}</time>
                   <div>
-                    <i>
-                      {post.tags.join(', ')}
-                    </i>
+                    <span className={styles.post_title}>
+                      <Link href={`/posts/${post.id}`}>
+                        {post.title}
+                      </Link>
+                    </span>
+                    <div style={{ display: 'inline-block', fontSize: 'medium', marginLeft: '1rem' }}>
+                      <i>
+                        {post.tags.join(', ')}
+                      </i>
+                    </div>
+                    <div>
+                      {post.summary}
+                    </div>
                   </div>
-                </div>
-              </article>
-            </li>
-          )
+                </article>
+              </li>
+            )
 
-          )}
-        </ul>
+            )}
+          </ul>
 
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   );
 }

@@ -1,17 +1,22 @@
 .article {
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
-
-@media (min-width:640px) {}
 
 .article time {
   line-height: 2rem;
+  font-size: smaller;
 }
 
 .section {
-  max-width: 600px;
   width: 100%;
+}
+
+.section ul {
+  text-indent: 0;
+  list-style-type: none;
+  padding-inline-start: 0;
 }
 
 .main {
@@ -23,18 +28,18 @@
   min-height: 100vh;
 }
 
-@media (min-width: 648px) {
+@media (min-width: 640px) {
   .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 6rem;
-    min-height: 100vh;
+    padding: 0px 0px;
   }
 
   .article {
     display: grid;
     grid-template-columns: 1fr 3fr;
+  }
+
+  .section ul {
+    padding-inline-start: 1rem;
   }
 
 }
