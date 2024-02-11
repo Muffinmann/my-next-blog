@@ -1,13 +1,11 @@
 import styles from './index.module.css';
 import Link from 'next/link';
-import TypeMachine from '@/components/TypeMachine';
 import { PostData, getSortedPostsData } from '@/lib/posts';
 import { GetStaticProps } from 'next';
-import { useState } from 'react';
 
 
 export const getStaticProps:GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData()?.filter((post) => !post.draft);
   return {
     props: {
       allPostsData

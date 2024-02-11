@@ -6,7 +6,7 @@ draft: false
 summary: 'non linear learning; investment; software design; life'
 ---
 
-# Non-linear learning 
+## Non-linear learning 
 
 youtube pushed me this [video](https://www.youtube.com/watch?v=nf9rwqxsd1w) and it narrates some ideas that
 could increasing my learning efficiency massively by combining it with the 'what, how, why' method.
