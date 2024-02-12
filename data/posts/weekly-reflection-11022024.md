@@ -7,21 +7,29 @@ summary: 'How the economic machine works; When should you sell the stock; How im
 ---
 
 ## The Economic Machine 
-Several years ago as I was still in the university, I watched one of the greatest economical video I've ever seen about
-[How the Economic Machine Works](https://www.youtube.com/watch?v=PHe0bXAIuk0) by Ray Dalio.
-I was quite impressed how easy the building block of a complex economic system can be explained. However, I was not very curious
-about the difference between the real development and this model and did not relate the model to any of my existing knowledge.
+I started to invest on the stock market recently, and I am so overwhelmed by all kinds of information in the due diligence
+because of not knowing how to interpret them. I feel the necessity to have my own mind model.
+I come to the idea of using the [How the Economic Machine Works](https://www.youtube.com/watch?v=PHe0bXAIuk0) by Ray Dalio
+as my start point because I watched it several years ago as I was still in the university and I was quite impressed by
+the beautiful fractal structure in that video. 
 
-Recently, since I started to invest on stock market, I feel the necessity to develope my own investment strategy and I think that
-video is a good start point.
+It uses a very easy model consisting of only two parts: transaction and debt, to illustrate the mechanism of the economy system.
+The whole system is built on top of some subsystems where the subsystems are built on top of their subsystems, and the smallest
+building stone is a transaction between two people which are referred as buyer and seller.
 
-The key of a fast economic growth is the 'debt'. When talk about debt, people usually refer it to something as a burden that makes
-the life more difficult. The credit card, the housing loan, the car loan...
-However, "debt' itself is just a value exchange across time, and to some extent, it can facilitate the wealth growth if you know
-how to use it properly. I'll use another post to describe the details about evaluating a debt and when is a debt good to take.
+The debt plays a role of some kind of resource distribution tool. But it has its downsides due to the nature of human being:
+if it is not used properly to increase the productivity, then it will become a big burden which would eventually destroyed the
+whole system.
 
-The most important part is that these principles can also be applied to single company and they offer a good criteria
-to evaluate the company performance.
+Whether a debt is healthy or not depends on the incoming rate and the interest rate, or in other words, the increasing rate of
+productivity and the increasing rate of a debt. If taking a debt can bring a higher increasing of productivity, then it is a good
+debt. I will use a new post to talk more about this.
+
+However, knowing how to analyzing the debt taking and the effect of the debt could be a good start to analyze a company.
+I can image the real world would be more complicated, for example, use what kind of criteria to evaluate the effect of debt?
+or how can me measure the debt taking for a strategical decision which takes more than several years?
+
+I don't know, maybe nobody knows. But the important part is that I start to step forward discovering.
 
 
 ## When to sell the stock
