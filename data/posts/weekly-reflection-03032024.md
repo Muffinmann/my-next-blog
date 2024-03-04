@@ -17,8 +17,9 @@ clean and the maintainance is getting more and more difficult.
 
 I was wondering if there is a existing open source project that has already a mature solution however, as I found out,
 there is not really a product that can fullfill all the requirements:
-1. For each page, thre are usually more than 30 fields and they are displayed under different rules and product contexts.
-2. The field rule could be quite complex:
+1. The creation of a page as well as the fields should be able to be achieved through some inituitive and effective interface, so
+   that they can be directly updated/changed by business related manager/administrator.
+2. A relatively complex field rule system:
   2.1 Sometimes the value of a field should be cleared by hiding and in some other cases it should be kept. 
   2.2 For a given field with specific key, there could be for eacht product context a different value or only one value for all
       product contexts.
@@ -28,3 +29,10 @@ there is not really a product that can fullfill all the requirements:
 3. Multiple steps(pages) are required for the data collection and a field of a certain key, let's say "field-a" can appear in
    different step(page) by different product context. If "field-a" is a unqiue field, then it's necessary to keep the value
    synchronized across different steps, otherwise it will record a value for each product context.
+
+During my research, there are two products that really impressed me: Tally and Feathery.
+
+Tally has a UI very similar to Notion and they completely get rid of the way of drag&drop, which in my opinion improves quite
+a lot effiency, however, the editing of computational field is not very inituative and it does not support much logic operations.
+
+Feathery has a common drag&drop UI and has a more detailed style design UI as well as a more powerful rule system.
